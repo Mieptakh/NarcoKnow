@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modul Edukasi: Apa Itu Narkoba?</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Import Poppins Font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+  
+    /* General Styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f4f8; /* Light background for a soothing effect */
+      color: #333;
+      line-height: 1.6;
+    }
+  
+    h1, h2 {
+      margin: 0;
+      padding: 0;
+    }
+  
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+  
+    /* Header Style */
+    header {
+      background: linear-gradient(135deg, #6c63ff, #8573ff);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      border-bottom: 5px solid #4a4e75;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+  
+    /* Section Style */
+    section {
+      margin-bottom: 40px;
+    }
+  
+    section h2 {
+      color: #4a4e75;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #6c63ff;
+      padding-bottom: 5px;
+      font-weight: 500;
+    }
+  
+    section p, section ul {
+      font-size: 1.125rem;
+      color: #555;
+      text-align: justify;
+      line-height: 1.8;
+    }
+  
+    ul li {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+    }
+  
+    ul li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #6c63ff;
+      font-size: 1.2rem;
+    }
+  
+    /* Button Styles */
+    .back-btn {
+      display: inline-block;
+      margin-top: 40px;
+      background-color: #6c63ff;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 40px;
+      text-decoration: none;
+      text-align: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+  
+    .back-btn:hover {
+      background-color: #4f47d1;
+      box-shadow: 0 8px 14px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+    }
+  
+    .back-btn i {
+      margin-right: 8px;
+    }
+  
+    /* Floating Action Button (FAB) */
+    .fab {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: #6c63ff;
+      color: white;
+      padding: 16px;
+      border-radius: 50%;
+      font-size: 24px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+  
+    .fab:hover {
+      background-color: #4f47d1;
+      transform: translateY(-5px);
+    }
+  
+    .fab:focus {
+      outline: none;
+    }
+  
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      main {
+        padding: 0 15px;
+      }
+  
+      header h1 {
+        font-size: 2.2rem;
+      }
+  
+      section h2 {
+        font-size: 1.6rem;
+      }
+  
+      section p, section ul {
+        font-size: 1rem;
+      }
+  
+      .back-btn {
+        font-size: 1rem;
+        padding: 12px 22px;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      header {
+        padding: 30px 20px;
+      }
+  
+      header h1 {
+        font-size: 1.8rem;
+      }
+  
+      section h2 {
+        font-size: 1.4rem;
+      }
+  
+      section p, section ul {
+        font-size: 0.95rem;
+      }
+  
+      .fab {
+        padding: 12px;
+        font-size: 20px;
+      }
+  
+      .back-btn {
+        font-size: 1rem;
+        padding: 12px 20px;
+      }
+    }
+
+    /* Styling untuk Foto Thumbnail */
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-thumbnail {
+  width: 80%;
+  max-width: 400px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Image */
+.modal {
+  display: none; /* Default: hidden */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Background color */
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 8px;
+}
+
+#caption {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+/* Button Close */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+  </style>
+    
+</head>
+<body>
+
+  <header>
+    <h1>Modul Edukasi: Apa Itu Narkoba?</h1>
+  </header>
+
+  <main>
+    <section>
+      <h2>Jenis Narkoba & Psikotropika</h2>
+      
+      <p>
+        Narkoba dan psikotropika memiliki berbagai jenis yang sering disalahgunakan oleh individu untuk tujuan tertentu. Penggunaan yang tidak bertanggung jawab terhadap zat-zat ini sangat berbahaya bagi kesehatan fisik, mental, serta kehidupan sosial. Berikut ini adalah penjelasan lebih mendalam tentang jenis-jenis narkoba dan psikotropika yang sering digunakan, serta dampak negatifnya.
+      </p>
+      
+      <!-- Narkotika Section -->
+      <div class="card-container">
+        <div class="card">
+          <div class="card-front">
+            <h3>Narkotika</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>Narkotika:</strong> Zat yang berasal dari tanaman atau sintetis yang memiliki efek menenangkan atau menurunkan kesadaran. Narkotika dapat menyebabkan kecanduan berat yang merusak fisik dan mental. Pengguna narkotika sering kali kehilangan kendali terhadap tubuh dan pikirannya, menyebabkan kerusakan organ, gangguan mental, dan berujung pada kematian akibat overdosis.</p>
+            
+            <h4>Dampak Penyalahgunaan Narkotika:</h4>
+            <ul>
+              <li>Kecanduan fisik dan psikologis yang sangat kuat.</li>
+              <li>Kerusakan permanen pada otak dan sistem saraf.</li>
+              <li>Gangguan mental seperti depresi, kecemasan, dan paranoia.</li>
+              <li>Penyakit fisik serius seperti hepatitis, HIV/AIDS, dan gangguan pernapasan.</li>
+              <li>Gangguan sosial dan penurunan kualitas hidup.</li>
+            </ul>
+    
+            <p><strong>Contoh Narkotika:</strong> Heroin, morfin, ganja, kokain, opium, dll.</p>
+            
+            <!-- Gambar untuk Narkotika -->
+            <div class="image-container">
+              <img src="assets/module/ganja.png" alt="Ganja" class="image-thumbnail" id="narkotikaModalBtn" />
+            </div>
+          </div>
+        </div>
+    
+        <!-- Psikotropika Section -->
+        <div class="card">
+          <div class="card-front">
+            <h3>Psikotropika</h3>
+          </div>
+          <div class="card-back">
+            <p><strong>Psikotropika:</strong> Zat yang mempengaruhi sistem saraf pusat dan dapat menyebabkan gangguan pada perilaku dan kesadaran. Penyalahgunaan psikotropika dapat merusak keseimbangan emosi, meningkatkan potensi kecemasan, paranoia, dan bahkan psikosis. Gangguan mental yang diakibatkan oleh psikotropika sering kali menyebabkan kerusakan jangka panjang pada individu.</p>
+            
+            <h4>Dampak Penyalahgunaan Psikotropika:</h4>
+            <ul>
+              <li>Perubahan perilaku yang tidak terkontrol, sering kali menjadi lebih agresif atau cemas.</li>
+              <li>Gangguan pada fungsi kognitif, seperti ingatan dan kemampuan berpikir jernih.</li>
+              <li>Risiko gangguan mental seperti depresi berat, psikotik, dan bahkan skizofrenia.</li>
+              <li>Kerusakan fisik, termasuk kerusakan jantung dan paru-paru.</li>
+              <li>Ketergantungan psikologis yang tinggi dan sangat sulit untuk dihentikan.</li>
+            </ul>
+    
+            <p><strong>Contoh Psikotropika:</strong> Ekstasi, sabu (methamphetamine), LSD, dan obat-obatan penenang yang disalahgunakan.</p>
+            
+            <!-- Gambar untuk Psikotropika -->
+            <div class="image-container">
+              <img src="assets/module/ekstasi.png" alt="Ekstasi" class="image-thumbnail" id="psikotropikaModalBtn" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <section>
+      <a href="modul.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Modul</a>
+    </section>
+
+  <!-- Floating Action Button (FAB) -->
+  <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+      <!-- Modal Image untuk Narkotika -->
+  <div id="narkotikaModal" class="modal">
+    <span class="close-btn" id="closeNarkotikaModalBtn">&times;</span>
+    <img class="modal-content" id="narkotikaModalImage">
+    <div id="narkotikaCaption"></div>
+  </div>
+
+  <!-- Modal Image untuk Psikotropika -->
+  <div id="psikotropikaModal" class="modal">
+    <span class="close-btn" id="closePsikotropikaModalBtn">&times;</span>
+    <img class="modal-content" id="psikotropikaModalImage">
+    <div id="psikotropikaCaption"></div>
+  </div>
+</section>
+  </main>
+  
+
+  <!-- Floating Action Button (FAB) -->
+  <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Modal untuk Narkotika
+    var narkotikaModal = document.getElementById("narkotikaModal");
+    var narkotikaImg = document.getElementById("narkotikaModalBtn");
+    var narkotikaModalImg = document.getElementById("narkotikaModalImage");
+    var narkotikaCaption = document.getElementById("narkotikaCaption");
+    var narkotikaSpan = document.getElementById("closeNarkotikaModalBtn");
+  
+    // Modal untuk Psikotropika
+    var psikotropikaModal = document.getElementById("psikotropikaModal");
+    var psikotropikaImg = document.getElementById("psikotropikaModalBtn");
+    var psikotropikaModalImg = document.getElementById("psikotropikaModalImage");
+    var psikotropikaCaption = document.getElementById("psikotropikaCaption");
+    var psikotropikaSpan = document.getElementById("closePsikotropikaModalBtn");
+  
+    // Ketika gambar narkotika diklik
+    narkotikaImg.onclick = function() {
+      narkotikaModal.style.display = "block";
+      narkotikaModalImg.src = this.src;
+      narkotikaCaption.innerHTML = this.alt;
+    }
+  
+    // Ketika gambar psikotropika diklik
+    psikotropikaImg.onclick = function() {
+      psikotropikaModal.style.display = "block";
+      psikotropikaModalImg.src = this.src;
+      psikotropikaCaption.innerHTML = this.alt;
+    }
+  
+    // Menutup modal narkotika
+    narkotikaSpan.onclick = function() {
+      narkotikaModal.style.display = "none";
+    }
+  
+    // Menutup modal psikotropika
+    psikotropikaSpan.onclick = function() {
+      psikotropikaModal.style.display = "none";
+    }
+  
+    // Tutup modal jika klik di luar gambar
+    window.onclick = function(event) {
+      if (event.target == narkotikaModal) {
+        narkotikaModal.style.display = "none";
+      }
+      if (event.target == psikotropikaModal) {
+        psikotropikaModal.style.display = "none";
+      }
+    }
+  </script>  
+
+</body>
+</html>

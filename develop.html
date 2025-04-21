@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halaman Sedang Dikembangkan</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1565c0;
+      --accent: #42a5f5;
+      --bg-light: #f1f8ff;
+      --white: #fff;
+      --text: #333;
+      --shadow: rgba(0, 0, 0, 0.15);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, var(--bg-light), #dbeeff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      color: var(--text);
+    }
+
+    .container {
+      background: var(--white);
+      padding: 3rem 2rem;
+      border-radius: 25px;
+      box-shadow: 0 8px 25px var(--shadow);
+      max-width: 600px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.015);
+    }
+
+    .icon {
+      font-size: 4rem;
+      color: var(--accent);
+      animation: pulse 2s infinite;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .back-btn {
+      padding: 0.8rem 1.6rem;
+      background-color: var(--primary);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(21, 101, 192, 0.3);
+    }
+
+    .back-btn:hover {
+      background-color: #0d47a1;
+      box-shadow: 0 6px 16px rgba(21, 101, 192, 0.4);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon"><i class="fas fa-tools"></i></div>
+    <h1>Oops... Masih Dalam Pengembangan 😅</h1>
+    <p>Halaman ini sedang saya bangun biar makin keren, informatif, dan penuh manfaat buat kamu. Tungguin yaa! 🚧💻✨</p>
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali ke Beranda</a>
+  </div>
+</body>
+</html>

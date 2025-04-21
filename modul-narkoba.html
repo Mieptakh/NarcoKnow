@@ -181,6 +181,73 @@
         padding: 12px 20px;
       }
     }
+
+    /* Styling untuk Foto Thumbnail */
+.image-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.image-thumbnail {
+  width: 80%;
+  max-width: 400px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.image-thumbnail:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Image */
+.modal {
+  display: none; /* Default: hidden */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Background color */
+  overflow: auto;
+  padding-top: 60px;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  border-radius: 8px;
+}
+
+#caption {
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  margin-top: 15px;
+}
+
+/* Button Close */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
   </style>
     
 </head>
@@ -192,14 +259,20 @@
 
   <main>
     <section>
-      <h2>Pengertian Narkoba</h2>
-      <p>
-        Narkoba adalah singkatan dari narkotika, psikotropika, dan bahan adiktif lainnya. Istilah ini merujuk pada zat-zat kimia yang bila dikonsumsi dapat mengubah kesadaran, perasaan, dan perilaku. Narkoba bekerja dengan cara mempengaruhi sistem saraf pusat, yang dapat menyebabkan ketergantungan baik fisik maupun psikologis. Narkoba tidak hanya berdampak pada tubuh, tetapi juga pada kondisi mental, sosial, dan hukum seseorang.
-      </p>
-      <p>
-        Penyalahgunaan narkoba dapat berakibat fatal, mulai dari gangguan fisik yang serius, kerusakan mental, hingga masalah sosial yang mengganggu hubungan keluarga dan masyarakat. Oleh karena itu, pemahaman lebih dalam tentang narkoba sangat penting untuk mencegah dan menghindari dampak buruknya.
-      </p>
-    </section>
+
+        <h2>Pengertian Narkoba</h2>
+        <!-- Tempat Foto -->
+        <div class="image-container">
+            <img src="assets/module/image.png" alt="Gambar Narkoba" class="image-thumbnail" id="imageModalBtn" />
+        </div>
+        <p>
+          Narkoba adalah singkatan dari narkotika, psikotropika, dan bahan adiktif lainnya. Istilah ini merujuk pada zat-zat kimia yang bila dikonsumsi dapat mengubah kesadaran, perasaan, dan perilaku. Narkoba bekerja dengan cara mempengaruhi sistem saraf pusat, yang dapat menyebabkan ketergantungan baik fisik maupun psikologis. Narkoba tidak hanya berdampak pada tubuh, tetapi juga pada kondisi mental, sosial, dan hukum seseorang.
+        </p>
+        <p>
+          Penyalahgunaan narkoba dapat berakibat fatal, mulai dari gangguan fisik yang serius, kerusakan mental, hingga masalah sosial yang mengganggu hubungan keluarga dan masyarakat. Oleh karena itu, pemahaman lebih dalam tentang narkoba sangat penting untuk mencegah dan menghindari dampak buruknya.
+        </p>
+      </section>
+      
 
     <section>
       <h2>Klasifikasi dan Jenis Narkoba</h2>
@@ -237,13 +310,47 @@
     <section>
       <a href="modul.html" class="back-btn"><i class="fas fa-arrow-left"></i> Kembali ke Daftar Modul</a>
     </section>
-    
+    <!-- Modal Image -->
+    <div id="imageModal" class="modal">
+        <span class="close-btn" id="closeModalBtn">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+      </div>
   </main>
 
   <!-- Floating Action Button (FAB) -->
   <button class="fab" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
     <i class="fas fa-arrow-up"></i>
   </button>
+
+  <script>
+    // Mendapatkan modal dan gambar thumbnail
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    var captionText = document.getElementById("caption");
+    var img = document.getElementById("imageModalBtn");
+    var span = document.getElementById("closeModalBtn");
+  
+    // Ketika gambar thumbnail diklik, buka modal dan tampilkan gambar besar
+    img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    }
+  
+    // Ketika tombol close modal diklik, tutup modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+  
+    // Tutup modal ketika pengguna mengklik di luar gambar
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+  
 
 </body>
 </html>
