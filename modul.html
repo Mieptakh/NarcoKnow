@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Edukasi NarcoKnow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- FontAwesome untuk ikon -->
+    <style>
+        /* === Modul Container === */
+        .modul-container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+          padding: 60px 20px;
+        }
+      
+        /* === Card Style === */
+        .modul-card {
+          flex: 1 1 300px; /* Lebar minimal tapi bisa fleksibel */
+          max-width: 320px;
+          height: auto;
+          background: white;
+          box-shadow: 0 12px 24px rgba(108, 99, 255, 0.15);
+          border-radius: 20px;
+          padding: 30px 20px;
+          transition: all 0.4s ease;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+      
+        .modul-card::before {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 8px;
+          background: linear-gradient(90deg, #6c63ff, #a993ff);
+          top: 0;
+          left: 0;
+        }
+      
+        .modul-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 20px 40px rgba(108, 99, 255, 0.25);
+        }
+      
+        .modul-card .icon {
+          font-size: 48px;
+          color: #6c63ff;
+          margin-bottom: 20px;
+          animation: bounce 2s infinite;
+        }
+      
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+      
+        .modul-card h3 {
+          font-size: 1.4rem;
+          color: #333;
+          margin-bottom: 10px;
+        }
+      
+        .modul-card p {
+          font-size: 1rem;
+          color: #666;
+          padding: 0 10px;
+          line-height: 1.5;
+          margin-bottom: 15px;
+        }
+      
+        .modul-card a {
+          margin-top: auto;
+          background: linear-gradient(135deg, #6c63ff, #a993ff);
+          color: white;
+          padding: 10px 24px;
+          border-radius: 30px;
+          font-weight: 600;
+          font-size: 0.95rem;
+          text-decoration: none;
+          transition: background 0.3s ease;
+        }
+      
+        .modul-card a:hover {
+          background: linear-gradient(135deg, #4f47d1, #8573ff);
+        }
+      
+        /* === Responsif Tambahan === */
+        @media (max-width: 992px) {
+          .modul-card {
+            flex: 1 1 45%;
+          }
+        }
+      
+        @media (max-width: 768px) {
+          .modul-card {
+            flex: 1 1 100%;
+            max-width: 100%;
+          }
+        }
+      </style>
+         
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+          <div class="logo">
+            <h1>NarcoKnow</h1>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="modul.html">Modul Edukasi</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li><a href="bantuan.html">Bantuan</a></li>
+          </ul>
+          <div class="burger" id="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </nav>
+      </header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-overlay">
+        <h1>Modul Edukasi Narkoba</h1>
+        <p>Pelajari berbagai hal tentang narkoba dan psikotropika, serta cara menghindari penyalahgunaannya.</p>
+    </div>
+</section>
+
+<!-- Modul Section -->
+<section class="modul-container">
+    <!-- Modul 1: Apa itu Narkoba -->
+    <div class="modul-card">
+        <div class="icon">
+            <i class="fas fa-book-open"></i>
+        </div>
+        <h3>Apa itu Narkoba?</h3>
+        <p>Pelajari definisi dasar tentang narkoba dan jenis-jenisnya.</p>
+        <a href="modul-narkoba.html">Baca Selengkapnya</a>
+    </div>
+
+    <!-- Modul 2: Jenis Narkoba & Psikotropika -->
+    <div class="modul-card">
+        <div class="icon">
+            <i class="fas fa-cogs"></i>
+        </div>
+        <h3>Jenis Narkoba & Psikotropika</h3>
+        <p>Kenali berbagai jenis narkoba dan psikotropika serta efeknya.</p>
+        <a href="modul2.html">Baca Selengkapnya</a>
+    </div>
+
+    <!-- Modul 3: Dampak Narkoba -->
+    <div class="modul-card">
+        <div class="icon">
+            <i class="fas fa-skull-crossbones"></i>
+        </div>
+        <h3>Dampak Penggunaan Narkoba</h3>
+        <p>Pelajari dampak negatif narkoba bagi tubuh dan mental.</p>
+        <a href="modul3.html">Baca Selengkapnya</a>
+    </div>
+
+    <!-- Modul 4: Menghindari Penyalahgunaan Narkoba -->
+    <div class="modul-card">
+        <div class="icon">
+            <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Cara Menghindari Narkoba</h3>
+        <p>Pelajari langkah-langkah untuk menghindari penyalahgunaan narkoba.</p>
+        <a href="modul4.html">Baca Selengkapnya</a>
+    </div>
+
+    <!-- Modul 5: Solusi dan Bantuan -->
+    <div class="modul-card">
+        <div class="icon">
+            <i class="fas fa-hand-holding-heart"></i>
+        </div>
+        <h3>Solusi & Bantuan</h3>
+        <p>Temukan solusi dan tempat rehabilitasi untuk pengguna narkoba.</p>
+        <a href="modul5.html">Baca Selengkapnya</a>
+    </div>
+</section>
+
+<footer>
+    <div id="footer-content">
+      <div id="footer-about">
+        <p><strong>Tentang NarcoKnow</strong></p>
+        <p>NarcoKnow adalah platform edukatif yang bertujuan untuk meningkatkan kesadaran masyarakat terhadap bahaya narkotika melalui informasi yang jelas dan mudah dipahami.</p>
+      </div>
+  
+      <div id="footer-disclaimer">
+        <p><strong>Disclaimer</strong></p>
+        <p>Website ini merupakan purwarupa (prototype) dari platform edukasi tentang narkoba yang dikembangkan secara digital. Saat ini, website ini masih dalam tahap preview kepada publik dan berfungsi untuk memberikan gambaran awal mengenai misi edukasi yang saya tuju. Konten yang disajikan bersumber dari data-data yang tersebar di internet secara luas dan berusaha untuk menyajikan informasi yang akurat. Namun, website ini tidak dimaksudkan sebagai rujukan resmi atau pengganti nasihat dari ahli profesional dalam bidang kesehatan atau hukum.</p>
+      </div>
+    
+
+      <div id="footer-copy">
+        <p>&copy; 2025 NarcoKnow. Semua hak dilindungi.</p>
+        <p>Designed with love by Ach. Miftakhul Huda via ChatGPT 💖</p>
+      </div>
+    </div>
+  
+    <!-- Button Kembali ke Atas dengan Icon FA -->
+    <button id="back-to-top" title="Kembali ke Atas">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+</footer>
+
+<script>
+    // Burger Menu Toggle
+    const burger = document.getElementById("burger");
+    const navLinks = document.getElementById("nav-links");
+
+    burger.addEventListener("click", () => {
+    // Toggle burger animation
+    burger.classList.toggle("open");
+    // Toggle the navigation links visibility
+    navLinks.classList.toggle("active");
+    });
+
+    // Example function that might throw an error
+    function someFunctionThatMightFail() {
+    throw new Error("This is a simulated error.");
+    }
+  </script>
+
+  <script>
+    // Button Kembali ke Atas
+    const backToTopButton = document.getElementById('back-to-top');
+
+    window.onscroll = function () {
+    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
+    }
+    };
+
+    backToTopButton.onclick = function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    };
+  </script>
+
+</body>
+</html>

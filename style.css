@@ -1,0 +1,442 @@
+/* === Reset dan Base === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fefefe;
+    color: #2e2e2e;
+    line-height: 1.6;
+  }
+  
+  /* === Navbar === */
+  .navbar {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #6c63ff;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+  }
+  
+  .nav-links li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffb6b9;
+  }
+  
+  /* === Burger Menu === */
+  .burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 30px; /* Jarak dari nav utama */
+  }
+  
+  .burger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+  }
+  
+/* === Burger jadi X SEMPURNA === */
+  .burger.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+  
+  .burger.open .line:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .burger.open .line:nth-child(3) {
+    transform: rotate(-47deg) translate(7px, -7px);
+  }
+  
+  
+  /* === Responsive Navbar === */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background-color: #1e1e2f;
+      position: absolute;
+      top: 60px;
+      right: 1.5%;
+      width: 200px;
+      border-radius: 10px;
+      padding: 20px;
+    }
+  
+    .nav-links.active {
+      display: flex;
+      margin-top: 15px;
+    }
+  
+    .burger {
+      display: flex;
+    }
+  }
+  
+/* === Hero Section === */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full screen height */
+    min-height: 100%; /* Membantu memastikan Hero mengambil seluruh layar */
+    background: url('assets/hero/image.png') center/cover no-repeat;
+    background-attachment: fixed; /* Membuat gambar tetap saat scroll */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 1;
+    filter: brightness(75%); /* Mengatur kecerahan gambar */
+}
+
+/* === Overlay untuk Teks === */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+    backdrop-filter: blur(10px); /* Menambahkan blur pada background */
+    padding: 0 15px;
+}
+
+/* Teks Utama */
+.hero h1 {
+    font-size: 4rem;  /* Ukuran font lebih besar untuk tampilan utama */
+    font-weight: 700;
+    margin-bottom: 30px;  /* Margin yang lebih besar agar jarak lebih seimbang */
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 4px;  /* Sedikit lebih lebar */
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Shadow untuk teks */
+    animation: fadeIn 2s ease-out;
+}
+
+/* Paragraf */
+.hero p {
+    font-size: 1.5rem;  /* Ukuran font lebih besar, tapi tidak berlebihan */
+    color: white;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    animation: fadeIn 2s ease-out 1s;
+    line-height: 1.6;
+}
+
+/* Tombol */
+.hero .btn {
+    background-color: #6c63ff;
+    color: white;
+    padding: 20px 45px;  /* Padding lebih besar agar tombol lebih menonjol */
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 20px;  /* Ukuran font lebih besar di tombol */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero .btn:hover {
+    background-color: #4f47d1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);  /* Tombol terangkat saat hover */
+}
+
+/* === Animasi Fade In untuk Teks === */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Responsif === */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 3rem;  /* Ukuran font sedikit lebih kecil di tablet */
+    }
+
+    .hero p {
+        font-size: 1.25rem;  /* Ukuran font sedikit lebih kecil */
+    }
+
+    .hero .btn {
+        padding: 18px 35px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 100vh;  /* Pastikan Hero mengisi layar penuh */
+        padding: 0 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;  /* Ukuran font lebih kecil di layar tablet */
+    }
+
+    .hero p {
+        font-size: 1.2rem;  /* Sedikit lebih kecil untuk layar tablet */
+    }
+
+    .hero .btn {
+        padding: 15px 30px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 100vh;  /* Full height untuk layar ponsel */
+    }
+
+    .hero h1 {
+        font-size: 2rem;  /* Ukuran font lebih kecil di ponsel */
+    }
+
+    .hero p {
+        font-size: 1rem;  /* Ukuran font lebih kecil */
+    }
+
+    .hero .btn {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+}
+  
+/* === Features Section === */
+.features {
+    padding: 60px 20px;
+    background-color: #f9f9ff;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.features h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    color: #6c63ff;
+    text-transform: uppercase;
+    width: 100%; /* Menyediakan ruang penuh untuk judul */
+    text-align: center;
+}
+
+/* Fitur: Membuat Layout Flexbox dengan lebih responsif */
+.feature {
+    flex: 1 1 calc(33.333% - 40px); /* Ukuran fleksibel, membagi 3 kolom dengan jarak antar kolom */
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6c63ff;
+    border-radius: 50%;
+    color: white;
+    font-size: 36px;
+}
+
+.feature h3 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 20px;
+    padding: 0 10px; /* Menambah padding kiri dan kanan agar teks tidak terlalu menempel */
+    text-align: center;
+}
+
+/* Hover Effect */
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.feature:hover .feature-icon i {
+    transform: scale(1.2); /* Efek memperbesar ikon saat hover */
+}
+
+/* Responsive Design for Laptop and Tablet */
+@media (max-width: 1024px) {
+    .features {
+        justify-content: space-evenly;
+    }
+
+    .feature {
+        flex: 1 1 calc(33.333% - 30px); /* 3 kolom dengan sedikit jarak */
+    }
+}
+
+/* Responsive Design for Tablet */
+@media (max-width: 768px) {
+    .feature {
+        flex: 1 1 calc(50% - 40px); /* 2 kolom pada layar tablet */
+    }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 480px) {
+    .feature {
+        flex: 1 1 100%; /* 1 kolom pada layar mobile */
+    }
+
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .feature h3 {
+        font-size: 1.5rem; /* Ukuran font sedikit lebih kecil pada perangkat mobile */
+    }
+
+    .feature p {
+        font-size: 0.9rem; /* Ukuran teks sedikit lebih kecil pada perangkat mobile */
+    }
+}
+  
+  
+/* === Footer === */
+footer {
+    background-color: #1e1e2f;
+    color: #ffffff;
+    padding: 60px 20px;
+    font-size: 14px;
+    text-align: center;
+    position: relative;
+  }
+  
+  #footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  #footer-about,
+  #footer-disclaimer,
+  #footer-copy {
+    margin-bottom: 20px;
+    max-width: 800px;
+    text-align: left;
+  }
+  
+  #footer-about p,
+  #footer-disclaimer p,
+  #footer-copy p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  #footer-copy p {
+    font-style: italic;
+    color: #cccccc;
+  }
+  
+  /* === Button Kembali ke Atas dengan Ikon FA === */
+  #back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #6c63ff;
+    color: white;
+    font-size: 22px;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  #back-to-top:hover {
+    background-color: #4e44d6;
+    transform: scale(1.1);
+  }
+  
+  #back-to-top:focus {
+    outline: none;
+  }
+  
+  #back-to-top i {
+    font-size: 24px;
+  }
+  
+  /* === Responsif Footer === */
+  @media (max-width: 768px) {
+    #footer-about, #footer-disclaimer, #footer-copy {
+      text-align: center;
+    }
+  }
+  
